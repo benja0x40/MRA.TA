@@ -56,6 +56,8 @@ plotProbeDistanceControls(x, rnk, dis, dlim = c(-2000, 2000), QF = NULL, ylab = 
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{plotSelectedProbes}},
+\code{\link{enrichmentQuality}}
 }
 \examples{
 }

@@ -54,6 +54,7 @@ enrichmentQuality(x, y, q.best = 0.015, q.worst = 0.005, plots = F)
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{plotProbeDistanceControls}}
 }
 \examples{
   x <- 2^pmin(rlnorm(100000, 1, 0.5), 10)

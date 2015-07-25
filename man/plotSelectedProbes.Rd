@@ -1,32 +1,35 @@
-\name{makeColors}
-\alias{makeColors}
+\name{plotSelectedProbes}
+\alias{plotSelectedProbes}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 %%  ~~function to do ... ~~
-Coloring function for domainogram representations
+Plot 4C enrichment versus distance to restriction sites
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-makeColors(p, thresholds = c(10, 50, 500, 5000), colors = c("blue", "yellow", "red", "black"), background = "white", overflow = "white")
+plotSelectedProbes(a, m, dis, sel, dlim = c(-2000, 2000), ylab = "4C")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{p}{
-%%     ~~Describe \code{p} here~~
+  \item{a}{
+%%     ~~Describe \code{a} here~~
 }
-  \item{thresholds}{
-%%     ~~Describe \code{thresholds} here~~
+  \item{m}{
+%%     ~~Describe \code{m} here~~
 }
-  \item{colors}{
-%%     ~~Describe \code{colors} here~~
+  \item{dis}{
+%%     ~~Describe \code{dis} here~~
 }
-  \item{background}{
-%%     ~~Describe \code{background} here~~
+  \item{sel}{
+%%     ~~Describe \code{sel} here~~
 }
-  \item{overflow}{
-%%     ~~Describe \code{overflow} here~~
+  \item{dlim}{
+%%     ~~Describe \code{dlim} here~~
+}
+  \item{ylab}{
+%%     ~~Describe \code{ylab} here~~
 }
 }
 \details{
@@ -53,7 +56,8 @@ makeColors(p, thresholds = c(10, 50, 500, 5000), colors = c("blue", "yellow", "r
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-\code{\link{domainogram}}
+\code{\link{plotProbeDistanceControls}},
+\code{\link{enrichmentQuality}}
 }
 \examples{
 }
