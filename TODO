@@ -1,0 +1,4 @@
+1. Cleanup unused code and obsolete comments
+2. Improve man pages on poorly or undocumented functions
+3. Implement unit tests on key functions
+4. Add examples in man pages
