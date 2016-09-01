@@ -1,11 +1,26 @@
 Package: MRA.TA
 Type: Package
 Title: Multi Resolution Analysis of Tiling Arrays
-Version: 0.9.0
-Date: 2015-05-14
+Version: 1.0.0
+Date: 2015-07-15
 Author: Benjamin Leblanc
 Maintainer: Benjamin Leblanc <benjaminolivierleblanc@gmail.com>
-Imports:  methods, stringr, getopt, plotrix, Biostrings, GenomicRanges
-Depends: R (>= 3.1.0), methods, stringr, getopt, plotrix, Biostrings, GenomicRanges
+Imports:
+    methods,
+    stringr,
+    getopt,
+    plotrix,
+    Biostrings,
+    GenomicRanges
+Depends:
+    R (>= 3.1.0),
+    methods,
+    stringr,
+    getopt,
+    plotrix,
+    Biostrings,
+    GenomicRanges
 Description: Computation and visualization of enriched chromatin domains from tiling arrays, including Chromatin ImmunoPrecipitation (ChIP-on-chip) and Chromosome Conformation Capture (4C).
 License: GPL (>= 2)
+LazyData: TRUE
+RoxygenNote: 5.0.1

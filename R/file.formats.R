@@ -1,14 +1,29 @@
-# LIBRARIES ####################################################################
-
-# -----------------------------------------------------------------------------.
-# Load CRAN packages
-# -----------------------------------------------------------------------------.
-suppressPackageStartupMessages(library("stringr"))
-
-# FUNCTIONS ####################################################################
-
 # =============================================================================.
-# Verify input files
+#' Check input files
+# -----------------------------------------------------------------------------.
+#' @author Benjamin Leblanc
+#' @export verifyInputFiles
+#' @seealso
+#'    \link{readData}
+# -----------------------------------------------------------------------------.
+#' @description
+#' Check availability of tabulated text input files, including basic
+#' verification of the expected format.
+#'
+#' @details
+# -----------------------------------------------------------------------------.
+#' @param path.list
+#'
+#' @param columns
+#'
+#' @param sep
+#'
+#' @param comments
+#'
+# -----------------------------------------------------------------------------.
+#' @return NULL
+# -----------------------------------------------------------------------------.
+#' @examples
 # -----------------------------------------------------------------------------.
 verifyInputFiles <- function(path.list, columns=NULL, sep="\t", comments="#") {
   idx <- which(! file.exists(path.list))
@@ -36,8 +51,28 @@ verifyInputFiles <- function(path.list, columns=NULL, sep="\t", comments="#") {
     }
   }
 }
+
 # =============================================================================.
-# 
+#' Read tabulated text files
+# -----------------------------------------------------------------------------.
+#' @author Benjamin Leblanc
+#' @export readData
+#' @seealso
+#'    \link{verifyInputFiles}
+# -----------------------------------------------------------------------------.
+#' @description
+#' Read tab delimited text files with specific format definition
+#'
+#' @details
+# -----------------------------------------------------------------------------.
+#' @param fpath
+#'
+#' @param fform
+#'
+# -----------------------------------------------------------------------------.
+#' @return
+# -----------------------------------------------------------------------------.
+#' @examples
 # -----------------------------------------------------------------------------.
 readData <- function(fpath, fform) {
   colClasses <- c("NULL", "integer", "numeric", "character", "logical")
@@ -96,7 +131,7 @@ file.formats$experimental.design <- list(
   sep     = "\t",
   table = data.frame(
     columns = c(
-      "ID",          # character 
+      "ID",          # character
       "REPLICATE",   # character
       "LIBRARY",     # character
       "SAMPLE_PATH", # character
@@ -155,7 +190,7 @@ file.formats$restriction.fragment <- list(
   sep     = "\t",
   table = data.frame(
     columns = c(
-      "RFID",      # character 
+      "RFID",      # character
       "CHR",       # character
       "RS5.START", # integer
       "RS5.END",   # integer
@@ -212,7 +247,7 @@ file.formats$nimblegen.ndf <- list(
   sep     = "\t",
   table = data.frame(
     columns = c(
-      "PROBE_DESIGN_ID",    # character 
+      "PROBE_DESIGN_ID",    # character
       "CONTAINER",          # character
       "DESIGN_NOTE",        # character
       "SELECTION_CRITERIA", # character
@@ -340,7 +375,7 @@ file.formats$nimblegen.pair <- list(
   )
 )
 
-# # ------------------------------------------------------------------------------
+# # -----------------------------------------------------------------------------.
 # # Read micro array data from the Agilent platform
 # readAgilent <- function(filename) {
 #   col.classes <- c(
@@ -389,7 +424,7 @@ file.formats$nimblegen.pair <- list(
 #   data$original.chr <- chr
 #   data$original.start <- start
 #   data$original.end <- end
-#   
+#
 #   data
 # }
 # # -----------------------------------------------------------------------------.
@@ -415,7 +450,7 @@ file.formats$nimblegen.pair <- list(
 #   header=F,
 #   comment="#"
 # )
-# 
+#
 # # Agilent hybridization scans (pair files)
 # file.formats$agilent <- data.frame(
 #   colnames = c(

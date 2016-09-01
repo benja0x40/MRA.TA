@@ -1,23 +1,28 @@
-# LIBRARIES ####################################################################
-
-# -----------------------------------------------------------------------------.
-# Load CRAN packages
-# -----------------------------------------------------------------------------.
-suppressPackageStartupMessages(library(methods))
-suppressPackageStartupMessages(library(getopt))
-suppressPackageStartupMessages(library(stringr))
-
-# FUNCTIONS ####################################################################
-
 # =============================================================================.
-# Get command line arguments
+#' Extract command line arguments
 # -----------------------------------------------------------------------------.
+#' @author Benjamin Leblanc
+#' @export processArgs
+#' @seealso
+# -----------------------------------------------------------------------------.
+#' @description
+#'
+#' @details
 # Column 1: long option name
-# Column 2: short option name 
+# Column 2: short option name
 # Column 3: 0=no argument, 1=required argument, 2=optional argument
 # Column 4: data type (logical, integer, double, complex, character)
 # Column 5: a brief description of the purpose of the option
 # Column 6: default value
+# -----------------------------------------------------------------------------.
+#' @param script.args matrix or data.frame with argument specifications
+#' @param auto.help
+#' @param extra.help
+#' @param verbose
+# -----------------------------------------------------------------------------.
+#' @return
+# -----------------------------------------------------------------------------.
+#' @examples
 # -----------------------------------------------------------------------------.
 processArgs <- function(
   script.args=NULL, auto.help=T, extra.help="", verbose=T
@@ -35,7 +40,7 @@ processArgs <- function(
     getopt.specs <- rbind(script.args[,1:5])
     default.args <- script.args[,6]
     names(default.args) <- script.args[,1]
-    arg.types <- script.args[,4] 
+    arg.types <- script.args[,4]
     names(arg.types) <- script.args[,1]
     Args <- getopt(spec = getopt.specs)
     Args$ARGS <- NULL

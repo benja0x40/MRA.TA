@@ -1,4 +1,14 @@
+================================================================================
+TODO LIST
+================================================================================
+Double check API usability and consistency with manuscript
+Test once again OS X compatibility
+Make another test on tycho for Linux compatibility
+Update manuscript and README with latest changes (OS X compatibility)
+Make use of markdown to improve README file
+--------------------------------------------------------------------------------
 1. Cleanup unused code and obsolete comments
 2. Improve man pages on poorly or undocumented functions
 3. Implement unit tests on key functions
 4. Add examples in man pages
+5. update build/git ignore files to skip TODO file
