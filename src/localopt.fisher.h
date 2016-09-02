@@ -16,12 +16,12 @@
 // ------------------------------------------------------------------------------
 
 /////////////////////////////////////////////////////////////////////////////////
-// This function uses domainogram transformation based on Fisher combination
-// of per measurement p-values to identify a set of optimal domains. The result
-// is a multi resolution segmentation of the given sequence of measurements
-// (genomic profile).
-// This segmentation strategy relies on local optimization of p-values
-// associated to each explored domains.
+// This function performs the "domainogram" computation, that is
+// multi-resolution statistics based on Fisher's combination of pre-computed
+// measurement p-values, and identifies an exhaustive set of localy optimal
+// domains.
+// The result is a multi-resolution segmentation of the given sequence of
+// measurements p-values associated to a genomic profile.
 //
 // Required computation time:
 // time = O(n_data x (n_data-1)/2)
