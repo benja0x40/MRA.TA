@@ -7,9 +7,14 @@
 #' generate a kd-tree representation of (A,M) values for faster execution of the
 #' background traversal algorithm (see normalizeArrayData).
 # -----------------------------------------------------------------------------.
-#' @param M matrix of A and M values
-#' @param i row indexes
+#' @param M
+#' matrix of A and M values
+#'
+#' @param i
+#' row indexes
+#'
 #' @param d
+#'
 # -----------------------------------------------------------------------------.
 #' @return
 # -----------------------------------------------------------------------------.
@@ -91,9 +96,13 @@ plot.kdtree.border <- function(node) {
 #' values.
 # -----------------------------------------------------------------------------.
 #' @param M
+#'
 #' @param v
+#'
 #' @param d
+#'
 #' @param node
+#'
 # -----------------------------------------------------------------------------.
 #' @return
 # -----------------------------------------------------------------------------.

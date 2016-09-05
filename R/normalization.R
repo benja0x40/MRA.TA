@@ -1,4 +1,15 @@
 # =============================================================================.
+# Utility function for planar rotation (2D) centered at origin (0,0)
+# -----------------------------------------------------------------------------.
+# USAGE NOT DOCUMENTED
+# -----------------------------------------------------------------------------.
+rotate <- function(x, y, theta) {
+  u <- x * cos(theta) - y * sin(theta)
+  v <- x * sin(theta) + y * cos(theta)
+  list(x=u, y=v)
+}
+
+# =============================================================================.
 # FUNCTION line.ends
 # DETAIL ----------------------------------------------------------------------.
 # Utility function for visualization of the (A,M) bias slope.
@@ -28,107 +39,90 @@ line.ends <- function(x, y, ctr, alpha) {
   else
     return(list(x1=M[2,1], y1=M[2,2], x2=M[1,1], y2=M[1,2]))
 }
+
 # =============================================================================.
-#
-# -----------------------------------------------------------------------------.
-# x = A value
-# y = M value
-# -----------------------------------------------------------------------------.
-
-
 #' Background bias estimation
-#'
-#'
-#' Estimate a background bias between a specific and a reference signal.
-#'
-#'
-#'
-#' @param x average log2 of the specific and the
-#' reference signal (A value)
-#' @param y log2 ratio of the specific over the
-#' reference signal (M value)
-#' @param AM.scale.compensation %% ~~Describe \code{AM.scale.compensation}
-#' here~~
-#' @param smoothness
-#' @param epsilon
-#' @param nsteps
-#' @param plots
-#' @param xlab
-#' @param ylab
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
-
-
-#' @seealso
-#' \code{\link{backgroundBiasCorrection}}, \code{\link{normalizeArrayData}}
-
-
-#' @examples
-#'
-#'   ntst <- 10 # Increase to over 1000 for a reliable test of accuracy
-#'
-#'   rotate <- function(x, y, theta) {
-#'     u <- x * cos(theta) - y * sin(theta)
-#'     v <- x * sin(theta) + y * cos(theta)
-#'     list(x=u, y=v)
-#'   }
-#'
-#'   tst <- c()
-#'   plots <- T
-#'   pb <- txtProgressBar(min=1, max=ntst, char="|", style=3)
-#'   for(i in 1:ntst) {
-#'     n.bg <- sample(c(70000, 80000, 90000), 1) # Background level data
-#'     n.sp <- 100000 - n.bg                     # Enriched level data
-#'     a <- c(rnorm(n.bg, 10, 2),  rnorm(n.sp, 10, 1))
-#'     m <- c(rnorm(n.bg, 0,  0.5), rnorm(n.sp,  1.5, 1))
-#'     alpha <- runif(1, -pi/4, pi/4)            # Pick a random angle
-#'     r <- rotate(a, m, theta = alpha)          # Simulate bias
-#'     xtm <- Sys.time()
-#'     theta <- backgroundBiasEstimation(        # Estimate bias
-#'       r$x, r$y, plots=plots, AM.scale.compensation = F, smoothness = 0.07
-#'     )
-#'     xtm <- Sys.time() - xtm
-#'     alpha <- 180/pi * alpha
-#'     theta <- 180/pi * theta
-#'     tst <- rbind(
-#'       tst, c(n.bg=n.bg, n.sp=n.sp, time=xtm, simulated=alpha, estimated=theta)
-#'     )
-#'     setTxtProgressBar(pb, i)
-#'     plots <- F
-#'   }
-#'   close(pb)
-#'   write.table(
-#'     tst, "testBackgroundBiasEstimation.txt",
-#'     quote = F, sep = '\t', row.names=F, col.names=T
-#'   )
-#'
-#'   tst <- read.delim("testBackgroundBiasEstimation.txt", stringsAsFactors=F)
-#'   boxplot(tst$estimated - tst$simulated, range=0, ylab="estimated - simulated (degrees)")
-#'   legend("topright", paste("N =", ntst), bty="n")
-#'
-#'   # Result with ntst=1000, delta <2.5 degrees in 95% of the tests:
-#'   # delta <- abs(tst$estimated - tst$simulated)
-#'   # q <- quantile(delta, probs=c(0.5, 0.75, 0.9, 0.95, 0.99), na.rm=T)
-#'
-#' @export backgroundBiasEstimation
-# =============================================================================.
-#'
 # -----------------------------------------------------------------------------.
 #' @author Benjamin Leblanc
-#' @export
+#' @export backgroundBiasEstimation
 #' @seealso
-#'    \link{},
+#'    \link{backgroundBiasCorrection},
+#'    \link{normalizeArrayData}
 # -----------------------------------------------------------------------------.
 #' @description
+#' Estimate a background bias between a specific and a reference signal.
 #'
 #' @details
 # -----------------------------------------------------------------------------.
-#' @param
+#' @param x
+#' average log2 of the specific and the reference signal (A value).
+#'
+#' @param y
+#' log2 ratio of the specific over the reference signal (M value).
+#'
+#' @param AM.scale.compensation
+#' logical
+#'
+#' @param smoothness
+#'
+#' @param epsilon
+#'
+#' @param nsteps
+#'
+#' @param plots
+#'
+#' @param xlab
+#'
+#' @param ylab
+#'
 # -----------------------------------------------------------------------------.
 #' @return
 # -----------------------------------------------------------------------------.
 #' @examples
+#' ntst <- 10 # Increase to over 1000 for a reliable test of accuracy
+#'
+#' rotate <- function(x, y, theta) {
+#'   u <- x * cos(theta) - y * sin(theta)
+#'   v <- x * sin(theta) + y * cos(theta)
+#'   list(x=u, y=v)
+#' }
+#'
+#' tst <- c()
+#' plots <- T
+#' pb <- txtProgressBar(min=1, max=ntst, char="|", style=3)
+#' for(i in 1:ntst) {
+#'   n.bg <- sample(c(70000, 80000, 90000), 1) # Background level data
+#'   n.sp <- 100000 - n.bg                     # Enriched level data
+#'   a <- c(rnorm(n.bg, 10, 2),  rnorm(n.sp, 10, 1))
+#'   m <- c(rnorm(n.bg, 0,  0.5), rnorm(n.sp,  1.5, 1))
+#'   alpha <- runif(1, -pi/4, pi/4)            # Pick a random angle
+#'   r <- rotate(a, m, theta = alpha)          # Simulate bias
+#'   xtm <- Sys.time()
+#'   theta <- backgroundBiasEstimation(        # Estimate bias
+#'     r$x, r$y, plots=plots, AM.scale.compensation = F, smoothness = 0.07
+#'   )
+#'   xtm <- Sys.time() - xtm
+#'   alpha <- 180/pi * alpha
+#'   theta <- 180/pi * theta
+#'   tst <- rbind(
+#'     tst, c(n.bg=n.bg, n.sp=n.sp, time=xtm, simulated=alpha, estimated=theta)
+#'   )
+#'   setTxtProgressBar(pb, i)
+#'   plots <- F
+#' }
+#' close(pb)
+#' write.table(
+#'   tst, "testBackgroundBiasEstimation.txt",
+#'   quote = F, sep = '\t', row.names=F, col.names=T
+#' )
+#'
+#' tst <- read.delim("testBackgroundBiasEstimation.txt", stringsAsFactors=F)
+#' boxplot(tst$estimated - tst$simulated, range=0, ylab="estimated - simulated (degrees)")
+#' legend("topright", paste("N =", ntst), bty="n")
+#'
+#' # Result with ntst=1000, delta <2.5 degrees in 95% of the tests:
+#' # delta <- abs(tst$estimated - tst$simulated)
+#' # q <- quantile(delta, probs=c(0.5, 0.75, 0.9, 0.95, 0.99), na.rm=T)
 # -----------------------------------------------------------------------------.
 backgroundBiasEstimation <- function(x, y, AM.scale.compensation=T, smoothness=0.08, epsilon=0.001, nsteps=11, plots=F, xlab='A', ylab='M') {
 
@@ -218,66 +212,36 @@ backgroundBiasEstimation <- function(x, y, AM.scale.compensation=T, smoothness=0
 
   theta
 }
-# =============================================================================.
-# Utility function for planar rotation (2D) centered at origin (0,0)
-# -----------------------------------------------------------------------------.
-# USAGE NOT DOCUMENTED
-# -----------------------------------------------------------------------------.
-rotate <- function(x, y, theta) {
-  u <- x * cos(theta) - y * sin(theta)
-  v <- x * sin(theta) + y * cos(theta)
-  list(x=u, y=v)
-}
-# =============================================================================.
-#
-# -----------------------------------------------------------------------------.
 
-
+# =============================================================================.
 #' Background bias correction
-#'
-#'
-#' Correct for a background bias as estimated by the
-#' \code{backgroundBiasEstimation} function.
-#'
-#'
-#'
-#' @param x
-#' @param y
-#' @param theta
-#' @param AM.scale.compensation %% ~~Describe \code{AM.scale.compensation}
-#' here~~
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
-
-
-#' @seealso
-#' \code{\link{backgroundBiasEstimation}}, \code{\link{normalizeArrayData}}
-
-
-#' @examples
-#'
-#'
-#' @export backgroundBiasCorrection
-# =============================================================================.
-#'
 # -----------------------------------------------------------------------------.
 #' @author Benjamin Leblanc
-#' @export
+#' @export backgroundBiasCorrection
 #' @seealso
-#'    \link{},
+#'    \link{backgroundBiasEstimation},
+#'    \link{normalizeArrayData}
 # -----------------------------------------------------------------------------.
 #' @description
+#' Correct for a background bias as estimated by the
+#' \link{backgroundBiasEstimation} function.
 #'
 #' @details
 # -----------------------------------------------------------------------------.
-#' @param
+#' @param x
+#'
+#' @param y
+#'
+#' @param theta
+#'
+#' @param AM.scale.compensation
+#'
 # -----------------------------------------------------------------------------.
 #' @return
 # -----------------------------------------------------------------------------.
 #' @examples
 # -----------------------------------------------------------------------------.
-backgroundBiasCorrection <- function(x, y, theta, AM.scale.compensation=T) {
+backgroundBiasCorrection <- function(x, y, theta, AM.scale.compensation = T) {
   # Scale compensation (required for A and M values)
   if(AM.scale.compensation) {
     x <- x * sqrt(2)
@@ -286,50 +250,33 @@ backgroundBiasCorrection <- function(x, y, theta, AM.scale.compensation=T) {
   v <- rotate(x, y, -theta)
   v
 }
+
 # =============================================================================.
-#
-# -----------------------------------------------------------------------------.
 # *** WARNING/TODO *** #  Cleanup the returned A value (and list names?)
-
-
-#' LOWESS based normalization
-#'
-#'
-#'
-#'
-#'
-#' @param x
-#' @param y
-#' @param lowess.f
-#' @param lowess.mad
-#' @param lowess.iter
-#' @param plots
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
-
-
-#' @seealso
-#' \code{\link{normalizeArrayData}}
-
-
-#' @examples
-#'
-#'
-#' @export lowessCorrection
 # =============================================================================.
-#'
+#' LOWESS based normalization
 # -----------------------------------------------------------------------------.
 #' @author Benjamin Leblanc
-#' @export
+#' @export lowessCorrection
 #' @seealso
-#'    \link{},
+#'    \link{normalizeArrayData}
 # -----------------------------------------------------------------------------.
 #' @description
 #'
 #' @details
 # -----------------------------------------------------------------------------.
-#' @param
+#' @param x
+#'
+#' @param y
+#'
+#' @param lowess.f
+#'
+#' @param lowess.mad
+#'
+#' @param lowess.iter
+#'
+#' @param plots
+#'
 # -----------------------------------------------------------------------------.
 #' @return
 # -----------------------------------------------------------------------------.
@@ -370,92 +317,80 @@ lowessCorrection <- function(x, y, lowess.f=0.3, lowess.mad=0, lowess.iter=5, pl
   }
   list(x=x, y=y)
 }
+
 # =============================================================================.
-#
-# -----------------------------------------------------------------------------.
-
-
 #' Normalize tiling array data
-#'
-#'
-#'
-#'
-#'
-#' @param A
-#' @param M
-#' @param smoothness
-#' @param epsilon
-#' @param nsteps
-#' @param name
-#' @param plots
-#' @param lowess
-#' @param lowess.f
-#' @param lowess.mad
-#' @param lowess.iter
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
-
-
-#' @seealso
-#' \code{\link{backgroundBiasEstimation}},
-#' \code{\link{backgroundBiasCorrection}}, \code{\link{lowessCorrection}}
-
-
-#' @examples
-#'
-#'   # Load array data and apply background bias estimation+correction, followed by
-#'   # lowess normalization
-#'
-#'   data(WT.4C.Fab7.dm6)
-#'
-#'   # 1. Combined procedure ------------------------------------------------------
-#'
-#'   # Raw A and M values
-#'   A <- (log2(r1.4C$PM) + log2(r1.ct$PM))/2
-#'   M <- (log2(r1.4C$PM) - log2(r1.ct$PM))
-#'
-#'   # Normalized A and M values
-#'   res <- normalizeArrayData(
-#'     A, M, name="4C_norm", plots=TRUE
-#'   )
-#'   A <- res$A; M <- res$M
-#'
-#'   # 2. Equivalent step by step procedure ---------------------------------------
-#'
-#'   # Raw A and M values
-#'   A <- (log2(r1.4C$PM) + log2(r1.ct$PM))/2
-#'   M <- (log2(r1.4C$PM) - log2(r1.ct$PM))
-#'
-#'   # Estimate background bias
-#'   bb.r1 <- backgroundBiasEstimation(A, M, plots = T)
-#'
-#'   # Correct background bias
-#'   res <- backgroundBiasCorrection(A, M, theta=bb.r1)
-#'   A <- res$x; M <- res$y
-#'
-#'   # Apply lowess normalization
-#'   res <- lowessCorrection(A, M, lowess.f=0.2, plots = T)
-#'   A <- res$x; M <- res$y
-#'
-#' @export normalizeArrayData
-# =============================================================================.
-#'
 # -----------------------------------------------------------------------------.
 #' @author Benjamin Leblanc
-#' @export
+#' @export normalizeArrayData
 #' @seealso
-#'    \link{},
+#'    \link{backgroundBiasEstimation},
+#'    \link{backgroundBiasCorrection},
+#'    \link{lowessCorrection}
 # -----------------------------------------------------------------------------.
 #' @description
 #'
 #' @details
 # -----------------------------------------------------------------------------.
-#' @param
+#' @param A
+#'
+#' @param M
+#'
+#' @param smoothness
+#'
+#' @param epsilon
+#'
+#' @param nsteps
+#'
+#' @param name
+#'
+#' @param plots
+#'
+#' @param lowess
+#'
+#' @param lowess.f
+#'
+#' @param lowess.mad
+#'
+#' @param lowess.iter
+#'
 # -----------------------------------------------------------------------------.
 #' @return
 # -----------------------------------------------------------------------------.
 #' @examples
+#' # Load array data and apply background bias estimation+correction, followed by
+#' # lowess normalization
+#'
+#' data(WT.4C.Fab7.dm6)
+#'
+#' # 1. Combined procedure ------------------------------------------------------
+#'
+#' # Raw A and M values
+#' A <- (log2(r1.4C$PM) + log2(r1.ct$PM))/2
+#' M <- (log2(r1.4C$PM) - log2(r1.ct$PM))
+#'
+#' # Normalized A and M values
+#' res <- normalizeArrayData(
+#'   A, M, name="4C_norm", plots=TRUE
+#' )
+#' A <- res$A; M <- res$M
+#'
+#' # 2. Equivalent step by step procedure ---------------------------------------
+#'
+#' # Raw A and M values
+#' A <- (log2(r1.4C$PM) + log2(r1.ct$PM))/2
+#' M <- (log2(r1.4C$PM) - log2(r1.ct$PM))
+#'
+#' # Estimate background bias
+#' bb.r1 <- backgroundBiasEstimation(A, M, plots = T)
+#'
+#' # Correct background bias
+#' res <- backgroundBiasCorrection(A, M, theta=bb.r1)
+#' A <- res$x; M <- res$y
+#'
+#' # Apply lowess normalization
+#' res <- lowessCorrection(A, M, lowess.f=0.2, plots = T)
+#' A <- res$x; M <- res$y
 # -----------------------------------------------------------------------------.
 normalizeArrayData <- function(A, M, smoothness=0.08, epsilon=0.01, nsteps=11, name="Test", plots=TRUE, lowess=T, lowess.f=0.2, lowess.mad=0, lowess.iter=5) {
 
@@ -509,67 +444,46 @@ normalizeArrayData <- function(A, M, smoothness=0.08, epsilon=0.01, nsteps=11, n
 
   return(list(A=A, M=M, bias=theta, ignored=which(discard)))
 }
+
 # =============================================================================.
-# Filter microarray probes according to simple quality scores
-# -----------------------------------------------------------------------------.
-# x = raw Ctr signal intensity
-# y = raw 4C signal intensity
-# -----------------------------------------------------------------------------.
-
-
 #' Best and worst enrichment levels
-#'
-#'
-#' Identify probes most likely associated with best and worst enrichment
-#' levels.
-#'
-#'
-#'
-#' @param x
-#' @param y
-#' @param q.best
-#' @param q.worst
-#' @param plots
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
-
-
-#' @seealso
-#' \code{\link{plotProbeDistanceControls}}
-
-
-#' @examples
-#'
-#'   x <- 2^pmin(rlnorm(100000, 1, 0.5), 10)
-#'   y <- 2^pmin(rlnorm(100000, 0.5, 1), 10)
-#'
-#'   chk <- enrichmentQuality(x, y, plots=T)
-#'
-#'   # Visualize thresholds on enrichment quality scores
-#'   clr <- with(
-#'     chk, rgb(is.worst, is.best, 0, ifelse(is.worst | is.best, 0.5, 0.1))
-#'   )
-#'   with(chk, plot(w.score, b.score, pch='.', col=clr))
-#'
-#' @export enrichmentQuality
-# =============================================================================.
-#'
 # -----------------------------------------------------------------------------.
 #' @author Benjamin Leblanc
-#' @export
+#' @export enrichmentQuality
 #' @seealso
-#'    \link{},
+#'    \link{plotProbeDistanceControls}
 # -----------------------------------------------------------------------------.
 #' @description
+#' Identify probes most likely associated with best and worst enrichment levels.
 #'
 #' @details
 # -----------------------------------------------------------------------------.
-#' @param
+#' @param x
+#' raw Ctr signal intensity
+#'
+#' @param y
+#' raw 4C signal intensity
+#'
+#' @param q.best
+#'
+#' @param q.worst
+#'
+#' @param plots
+#'
 # -----------------------------------------------------------------------------.
 #' @return
 # -----------------------------------------------------------------------------.
 #' @examples
+#' x <- 2^pmin(rlnorm(100000, 1, 0.5), 10)
+#' y <- 2^pmin(rlnorm(100000, 0.5, 1), 10)
+#'
+#' chk <- enrichmentQuality(x, y, plots=T)
+#'
+#' # Visualize thresholds on enrichment quality scores
+#' clr <- with(
+#'   chk, rgb(is.worst, is.best, 0, ifelse(is.worst | is.best, 0.5, 0.1))
+#' )
+#' with(chk, plot(w.score, b.score, pch='.', col=clr))
 # -----------------------------------------------------------------------------.
 enrichmentQuality <- function(x, y, q.best=0.015, q.worst=5E-3, plots=F) {
 
@@ -619,31 +533,30 @@ enrichmentQuality <- function(x, y, q.best=0.015, q.worst=5E-3, plots=F) {
 # =============================================================================.
 #' Plot 4C enrichment versus distance to restriction sites
 # -----------------------------------------------------------------------------.
-#' @param x
-#' @param rnk
-#' @param dis
-#' @param dlim
-#' @param QF
-#' @param n.q
-#' @param ylab
-#' @seealso
-#' \code{\link{plotSelectedProbes}}, \code{\link{enrichmentQuality}}
-#' @examples
-#' @export plotProbeDistanceControls
-# -----------------------------------------------------------------------------.
-# =============================================================================.
-#'
-# -----------------------------------------------------------------------------.
 #' @author Benjamin Leblanc
-#' @export
+#' @export plotProbeDistanceControls
 #' @seealso
-#'    \link{},
+#'    \link{plotSelectedProbes},
+#'    \link{enrichmentQuality}
 # -----------------------------------------------------------------------------.
 #' @description
 #'
 #' @details
 # -----------------------------------------------------------------------------.
-#' @param
+#' @param x
+#'
+#' @param rnk
+#'
+#' @param dis
+#'
+#' @param dlim
+#'
+#' @param QF
+#'
+#' @param n.q
+#'
+#' @param ylab
+#'
 # -----------------------------------------------------------------------------.
 #' @return
 # -----------------------------------------------------------------------------.
@@ -689,39 +602,22 @@ plotProbeDistanceControls <- function(x, rnk, dis, dlim=c(-2000, 2000), QF=NULL,
 # =============================================================================.
 #' Plot 4C enrichment versus distance to restriction sites
 # -----------------------------------------------------------------------------.
+#' @author Benjamin Leblanc
+#' @export plotSelectedProbes
+#' @seealso
+#'    \link{plotProbeDistanceControls},
+#'    \link{enrichmentQuality}
+# -----------------------------------------------------------------------------.
+#' @description
+#'
+#' @details
+# -----------------------------------------------------------------------------.
 #' @param a
 #' @param m
 #' @param dis
 #' @param sel
 #' @param dlim
 #' @param ylab
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
-
-
-#' @seealso
-#' \code{\link{plotProbeDistanceControls}}, \code{\link{enrichmentQuality}}
-
-
-#' @examples
-#'
-#'
-#' @export plotSelectedProbes
-# -----------------------------------------------------------------------------.
-# =============================================================================.
-#'
-# -----------------------------------------------------------------------------.
-#' @author Benjamin Leblanc
-#' @export
-#' @seealso
-#'    \link{},
-# -----------------------------------------------------------------------------.
-#' @description
-#'
-#' @details
-# -----------------------------------------------------------------------------.
-#' @param
 # -----------------------------------------------------------------------------.
 #' @return
 # -----------------------------------------------------------------------------.

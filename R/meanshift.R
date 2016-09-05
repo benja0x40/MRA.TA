@@ -1,11 +1,28 @@
 # =============================================================================.
-# FUNCTION mean.shift
-# DETAIL ----------------------------------------------------------------------.
-# Core function of the background traversal algorithm based on a pre-computed
-# kd-tree structure of (A,M) values.
-# (see normalizeArrayData function below)
+#' Meanshift
 # -----------------------------------------------------------------------------.
-# USAGE NOT DOCUMENTED
+#' @author Benjamin Leblanc
+#' @export
+#' @seealso
+#'    \link{},
+# -----------------------------------------------------------------------------.
+#' @description
+#' Core function of the background traversal algorithm based on a pre-computed
+#' kd-tree structure of (A,M) values. See normalizeArrayData function.
+#' @details
+# -----------------------------------------------------------------------------.
+#' @param M
+#' @param v
+#' @param d
+#' @param node
+#' @param epsilon
+#' @param col
+#' @param nsteps
+#' @param plots
+# -----------------------------------------------------------------------------.
+#' @return
+# -----------------------------------------------------------------------------.
+#' @examples
 # -----------------------------------------------------------------------------.
 mean.shift <- function(M, v, d, node, epsilon=0.001, col=rgb(1,0.5,0,1), nsteps=0, plots=FALSE) {
 

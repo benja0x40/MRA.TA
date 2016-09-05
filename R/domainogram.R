@@ -16,7 +16,7 @@
 #' @param x vector of numeric values
 # -----------------------------------------------------------------------------.
 #' @return
-#' calc.Qi(x) = (rank(x) - 1) / n\cr where n is the length of x and ranking
+#' calc.Qi(x) = (rank(x) - 0.5) / n\cr where n is the length of x and ranking
 #' is performed in decreasing order:
 #' \itemize{
 #'    \item rank(min(x)) = n

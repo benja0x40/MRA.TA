@@ -1,25 +1,34 @@
 # =============================================================================.
 #' Compute a restriction map
 # -----------------------------------------------------------------------------.
-#' @param genome.seq \code{DNAStringSet}
-#' object containing the genome sequence
+#' @author Benjamin Leblanc
+#' @export computeRestrictionMap
+#' @seealso
+#'    \link{matchFragmentsToProbes},
+#'    \link{matchProbesToFragments},
+#'    \link{DNAStringSet}
+# -----------------------------------------------------------------------------.
+#' @description
+#'
+#' @details
+# -----------------------------------------------------------------------------.
+#' @param genome.seq
+#' \link{DNAStringSet} object containing the genome sequence
+#'
 #' @param enzyme.motif
 #' \code{character} value defining the enzyme cut sites as a DNA sequence
-#' @param output.file \code{character} prefix
-#' used to generate output file names.
-#' @param seqlist indices of chromosomes to
-#' be considered, default = all
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...  \item{sites}{file name with the restriction sites data}
+#'
+#' @param output.file
+#' \code{character} prefix used to generate output file names.
+#'
+#' @param seqlist
+#' indices of chromosomes to be considered (default = all).
+# -----------------------------------------------------------------------------.
+#' @return
+#' \item{sites}{file name with the restriction sites data}
 #' \item{fragments}{file name with restriction fragments data}
-#' @seealso
-#' \code{\link{matchFragmentsToProbes}}, \code{\link{matchProbesToFragments}},
-#' \code{\link{DNAStringSet}}
+# -----------------------------------------------------------------------------.
 #' @examples
-#'
-#'
-#' @export computeRestrictionMap
 # -----------------------------------------------------------------------------.
 computeRestrictionMap <- function(genome.seq, enzyme.motif, output.file, seqlist=NULL) {
 
@@ -94,21 +103,28 @@ computeRestrictionMap <- function(genome.seq, enzyme.motif, output.file, seqlist
 
   return(list(sites=out.sites, fragments=out.fragments))
 }
+
 # =============================================================================.
 #' Match restriction fragments to microarray probes
 # -----------------------------------------------------------------------------.
-#' @param fragments.grg
-#' @param probes.grg
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
-#'
-#' @seealso
-#' \code{\link{matchProbesToFragments}}, \code{\link{computeRestrictionMap}}
-#' @examples
-#'
-#'
+#' @author Benjamin Leblanc
 #' @export matchFragmentsToProbes
+#' @seealso
+#'    \link{matchProbesToFragments},
+#'    \link{computeRestrictionMap}
+# -----------------------------------------------------------------------------.
+#' @description
+#'
+#' @details
+# -----------------------------------------------------------------------------.
+#' @param fragments.grg
+#'
+#' @param probes.grg
+#'
+# -----------------------------------------------------------------------------.
+#' @return
+# -----------------------------------------------------------------------------.
+#' @examples
 # -----------------------------------------------------------------------------.
 matchFragmentsToProbes <- function(fragments.grg, probes.grg) {
   # ---------------------------------------------------------------------------.
@@ -163,20 +179,29 @@ matchFragmentsToProbes <- function(fragments.grg, probes.grg) {
 
   fragments.grg
 }
+
 # =============================================================================.
 #' Match micro array probes to restriction fragments
 # -----------------------------------------------------------------------------.
-#' @param probes.grg
-#' @param fragments.grg
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
-#' @seealso
-#' \code{\link{matchProbesToFragments}}, \code{\link{computeRestrictionMap}}
-#' @examples
-#'
-#'
+#' @author Benjamin Leblanc
 #' @export matchProbesToFragments
+#' @seealso
+#'    \link{matchFragmentsToProbes},
+#'    \link{computeRestrictionMap}
+# -----------------------------------------------------------------------------.
+#' @description
+#'
+#' @details
+# -----------------------------------------------------------------------------.
+#' @param probes.grg
+#'
+#' @param fragments.grg
+#'
+# -----------------------------------------------------------------------------.
+#' @return
+# -----------------------------------------------------------------------------.
+#' @examples
+# -----------------------------------------------------------------------------.
 matchProbesToFragments <- function(probes.grg, fragments.grg) {
   # ---------------------------------------------------------------------------.
   match.fragments <- function(ovl, probes.middle, regions.start, regions.end, regions.middle) {
@@ -236,18 +261,27 @@ matchProbesToFragments <- function(probes.grg, fragments.grg) {
 
   probes.grg
 }
+
 # =============================================================================.
 #' Count the number of accepted probes per restriction fragment
 # -----------------------------------------------------------------------------.
-#' @param probes.grg
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
-#' @seealso
-#' @examples
-#'
-#'
+#' @author Benjamin Leblanc
 #' @export countProbesPerFragment
+#' @seealso
+#'    \link{matchProbesToFragments},
+#'    \link{matchFragmentsToProbes},
+#'    \link{computeRestrictionMap}
+# -----------------------------------------------------------------------------.
+#' @description
+#'
+#' @details
+# -----------------------------------------------------------------------------.
+#' @param probes.grg
+#'
+# -----------------------------------------------------------------------------.
+#' @return
+# -----------------------------------------------------------------------------.
+#' @examples
 # -----------------------------------------------------------------------------.
 countProbesPerFragment <- function(probes.grg) {
   n.probes <- length(probes.grg)
@@ -256,19 +290,31 @@ countProbesPerFragment <- function(probes.grg) {
   probes.grg$RF_APNBR <- apnbr[idx]
   probes.grg
 }
+
 # =============================================================================.
 #' Combine probe measurements by restriction fragments
 # -----------------------------------------------------------------------------.
-#' @param x
-#' @param probes.grg
-#' @param FUN
-#' @param \dots
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
-#' @seealso
-#' @examples
+#' @author Benjamin Leblanc
 #' @export combineByFragment
+#' @seealso
+#'    \link{}
+# -----------------------------------------------------------------------------.
+#' @description
+#'
+#' @details
+# -----------------------------------------------------------------------------.
+#' @param x
+#'
+#' @param probes.grg
+#'
+#' @param FUN
+#'
+#' @param \dots
+#'
+# -----------------------------------------------------------------------------.
+#' @return
+# -----------------------------------------------------------------------------.
+#' @examples
 # -----------------------------------------------------------------------------.
 combineByFragment <- function(x, probes.grg, FUN=mean, ...) {
 

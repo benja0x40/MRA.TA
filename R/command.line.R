@@ -15,10 +15,15 @@
 # Column 5: a brief description of the purpose of the option
 # Column 6: default value
 # -----------------------------------------------------------------------------.
-#' @param script.args matrix or data.frame with argument specifications
+#' @param script.args
+#' matrix or data.frame with argument specifications
+#'
 #' @param auto.help
+#'
 #' @param extra.help
+#'
 #' @param verbose
+#'
 # -----------------------------------------------------------------------------.
 #' @return
 # -----------------------------------------------------------------------------.
