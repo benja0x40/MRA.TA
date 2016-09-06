@@ -316,7 +316,7 @@ countProbesPerFragment <- function(probes.grg) {
 # -----------------------------------------------------------------------------.
 #' @examples
 # -----------------------------------------------------------------------------.
-combineByFragment <- function(x, probes.grg, FUN=mean, ...) {
+combineByFragment <- function(x, probes.grg, FUN = mean, ...) {
 
   n.probes    <- length(probes.grg)
   fs <- paste(probes.grg$RF_ID, probes.grg$RF_SIDE, sep="_")

@@ -50,35 +50,48 @@ line.ends <- function(x, y, ctr, alpha) {
 #'    \link{normalizeArrayData}
 # -----------------------------------------------------------------------------.
 #' @description
-#' Estimate a background bias between a specific and a reference signal.
+#' Estimate a background bias within A, M values from a tiling array.
 #'
 #' @details
 # -----------------------------------------------------------------------------.
 #' @param x
-#' average log2 of the specific and the reference signal (A value).
+#' numeric vector of A values, e.g. the average of log2 of the specific and the
+#' reference signals.
 #'
 #' @param y
-#' log2 ratio of the specific over the reference signal (M value).
+#' numeric vector of M values, e.g. the log2 ratio of the specific over the
+#' reference signal.
 #'
 #' @param AM.scale.compensation
-#' logical
+#' \code{logical} determining if A and M values should be rescaled prior to
+#' bias estimation. Scale compensation is required and activated by default.
 #'
 #' @param smoothness
+#' numeric coefficient controlling the meanshift radius  in the rescaled (A,M)
+#' plane.
 #'
 #' @param epsilon
+#' convergence limit corresponding to the minimum displacement required per
+#' meanshift iteration in the rescaled (A,M) plane.
 #'
 #' @param nsteps
+#' minimum number of meanshift iterations.
 #'
 #' @param plots
+#' \code{logical} used to activate control plots (default = F, no plots)
 #'
 #' @param xlab
+#' label of the x axis for control plots.
 #'
 #' @param ylab
+#' label of the y axis for control plots.
 #'
 # -----------------------------------------------------------------------------.
 #' @return
+#' numeric value of the estimated bias angle in radians
 # -----------------------------------------------------------------------------.
 #' @examples
+#' # A simple test of the accuracy of bias estimations
 #' ntst <- 10 # Increase to over 1000 for a reliable test of accuracy
 #'
 #' rotate <- function(x, y, theta) {
@@ -223,21 +236,33 @@ backgroundBiasEstimation <- function(x, y, AM.scale.compensation=T, smoothness=0
 #'    \link{normalizeArrayData}
 # -----------------------------------------------------------------------------.
 #' @description
-#' Correct for a background bias as estimated by the
+#' Correct for a background bias in A, M values from a tiling array.
+#' The correction consists in a rotation of angle \code{-theta}, as estimated by the
 #' \link{backgroundBiasEstimation} function.
 #'
 #' @details
 # -----------------------------------------------------------------------------.
 #' @param x
+#' numeric vector of A values, e.g. the average of log2 of the specific and the
+#' reference signals.
 #'
 #' @param y
+#' numeric vector of M values, e.g. the log2 ratio of the specific over the
+#' reference signal.
 #'
 #' @param theta
+#' estimated bias angle in radians.
 #'
 #' @param AM.scale.compensation
-#'
+#' \code{logical} determining if A and M values should be rescaled prior to
+#' correction by a rotation of angle \code{-theta}.
+#' Scale compensation is required and activated by default.
 # -----------------------------------------------------------------------------.
 #' @return
+#' \code{backgroundBiasCorrection} returns a \code{list} with the following
+#' elements:
+#' \item{x}{ corrected A value}
+#' \item{y}{ corrected M value}
 # -----------------------------------------------------------------------------.
 #' @examples
 # -----------------------------------------------------------------------------.

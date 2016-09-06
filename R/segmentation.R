@@ -113,11 +113,11 @@
 #'
 #' # Plot domainogram
 #' domainogram(Yi, x.s, x.e, w2y)
-#' plot(Mi, type='l')
+#' plot(Mi, type='l', xaxs = 'i')
 #'
 #' # Visualize segmentation results
 #' plotOptimalSegments(opts, x.s, x.e, w2y, col="black")
-#' plot(Mi, type='l')
+#' plot(Mi, type='l', xaxs = 'i')
 #'
 #' # Visualize multi-resolution domains
 #' plotDomains(doms, x.s, x.e, w2y, col=rgb(0,0,0,0.5), border=rgb(0,0,0,0))
@@ -125,7 +125,7 @@
 #' plotDomains(doms.mr, x.s, x.e, w2y, col=rgb(0,1,0,0.5), border=rgb(0,0,0,0), lwd=2, lty=1, add=T)
 #' plotDomains(doms.ms, x.s, x.e, w2y, col=rgb(1,0,0,0.5), border=rgb(0,0,0,0), lwd=2, lty=1, add=T)
 #' legend("topright", c("Max. resolution", "Max. scale", "Both"), fill=c("green", "red", "chocolate"), bty='n')
-#' plot(Mi, type='l')
+#' plot(Mi, type='l', xaxs = 'i')
 # -----------------------------------------------------------------------------.
 segmentation <- function(Yi, name, wmax=0, wmin=3, gamma=1, Tw=0) {
 

@@ -11,9 +11,13 @@
 #' @description
 #' Transform numeric values into rank-based scores.
 #'
-#' @details
+#' @references
+#' de Wit E., Braunschweig U., Greil F., Bussemaker H.J., and van Steensel B.
+#' Global chromatin domain organization of the Drosophila genome.
+#' PLoS genetics 4: e1000045 (2008).
+#' \url{http://www.ncbi.nlm.nih.gov/pubmed/18369463}
 # -----------------------------------------------------------------------------.
-#' @param x vector of numeric values
+#' @param x vector of numeric values.
 # -----------------------------------------------------------------------------.
 #' @return
 #' calc.Qi(x) = (rank(x) - 0.5) / n\cr where n is the length of x and ranking

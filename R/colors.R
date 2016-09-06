@@ -100,15 +100,25 @@ makeColors <- function(p, thresholds = c(10, 50, 500, 5000), colors = c("blue","
 #' @details
 # -----------------------------------------------------------------------------.
 #' @param Pw
+#'
 #' @param x
+#'
 #' @param y
+#'
 #' @param width
+#'
 #' @param height
+#'
 #' @param colfun
+#'
 #' @param n.ticks
+#'
 #' @param n.bins
+#'
 #' @param cex
+#'
 #' @param \dots
+#'
 # -----------------------------------------------------------------------------.
 #' @return %% ~Describe the value returned %% If it is a LIST, use %%
 #' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of

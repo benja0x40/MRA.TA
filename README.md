@@ -2,7 +2,7 @@ MRA.TA - Multi-Resolution Analysis of Tiling Arrays
 ================================================================================
 
 MRA.TA is an R package for multi-resolution representation and segmentation of
-genomic profiles from tiling arrays such as ChIP-on-chip and Chromosome
+genomic profiles from tiling arrays such as [ChIP-on-chip](https://en.wikipedia.org/wiki/ChIP-on-chip) and Chromosome
 Conformation Capture on Chip (4C) experimental data.
 
 ### Background ###
@@ -13,7 +13,7 @@ Conformation Capture on Chip (4C) experimental data.
 
 #### Domaingram representation ####
 
-...
+![x](./images/examples/domainogram_01.png "example1") ![x](./images/examples/domainogram_02.png "example2")
 
 #### Multi-resolution segmentation ####
 

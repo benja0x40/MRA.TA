@@ -1,6 +1,18 @@
 ================================================================================
 TODO LIST
 ================================================================================
+Missing documentation:
+  + combineByFragment (restriction.map.R)
+  + countProbesPerFragment (restriction.map.R)
+  + colorstrip (colors.R)
+
+Incomplete documentation:
+  + computeRestrictionMap (restriction.map.R)
+
+================================================================================
+Dirty code:
+  + colorstrip (colors.R)
+================================================================================
 Double check API usability and consistency with manuscript
 Test once again OS X compatibility
 Make another test on tycho for Linux compatibility
