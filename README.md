@@ -1,15 +1,17 @@
 MRA.TA - Multi-Resolution Analysis of Tiling Arrays
 ================================================================================
 
-MRA.TA is an R package for multi-resolution representation and segmentation of
+`MRA.TA` is an R package for multi-resolution representation and segmentation of
 genomic profiles from tiling arrays such as ChIP-on-chip and Chromosome
-Conformation Capture on Chip (4C) experimental data.
+Conformation Capture on Chip (4C) experimental data.  
+This package also provides normalization, probe to restriction fragment matching
+and probe selection methods which are specifically dedicated to 4C data
+processing[<sup>1</sup>](#1).
 
 ### Main features ###
 
-#### Domaingram representation ####
-
-#### Multi-resolution segmentation ####
+Domaingram representation[<sup>2</sup>](#2), multi-resolution segmentation based on local
+optimization and internal consistency of the segmentation tree.
 
 ### Installation ###
 
@@ -28,8 +30,8 @@ install_github("benja0x40/MRA.TA")
 
 ### References ###
 
-<a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter to appear in *Polycomb Group Proteins.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
-[publisher](https://www.springer.com/gp/book/9781493963782)
+<a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter in *Polycomb Group Proteins: Methods and Protocols.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
+[publisher](http://dx.doi.org/10.1007/978-1-4939-6380-5_21) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/27659990)
 
-<a name="2"></a>2. de Wit E., Braunschweig U., Greil F., Bussemaker H. J. & van Steensel B. *Global chromatin domain organization of the Drosophila genome.* PLoS Genetics 4, e1000045 (2008).  
+<a name="2"></a>2. de Wit E., Braunschweig U., Greil F., Bussemaker H. J. & van Steensel B. *Global chromatin domain organization of the Drosophila genome.* PLoS Genetics (2008).  
 [publisher](http://dx.doi.org/10.1371/journal.pgen.1000045) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/18369463)

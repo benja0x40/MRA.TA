@@ -10,7 +10,12 @@
 #' @description
 #' Estimate a background bias within A, M values from a tiling array.
 #'
-#' @details
+#' @references
+#' Leblanc B., Comet I., Bantignies F., and Cavalli G.,
+#' *Chromosome Conformation Capture on Chip (4C): data processing.*
+#' Book chapter in *Polycomb Group Proteins.*
+#' Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).
+#' \link{https://www.springer.com/gp/book/9781493963782}
 # -----------------------------------------------------------------------------.
 #' @param x
 #' numeric vector of A values, e.g. the average of log2 of the specific and the

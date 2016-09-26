@@ -87,6 +87,13 @@ legend("topright", paste("N =", ntst), bty="n")
 \author{
 Benjamin Leblanc
 }
+\references{
+Leblanc B., Comet I., Bantignies F., and Cavalli G.,
+*Chromosome Conformation Capture on Chip (4C): data processing.
+Book chapter to appear in *Polycomb Group Proteins.*
+*Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).
+\link{https://www.springer.com/gp/book/9781493963782}
+}
 \seealso{
 \link{backgroundBiasCorrection},
    \link{normalizeArrayData}
