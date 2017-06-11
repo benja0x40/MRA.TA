@@ -13,7 +13,7 @@ processing[<sup>1</sup>](#1).
 The included multi-resolution analysis methods are relevant for both 4C
 and ChIP-on-chip profiles of broad chromatin components such as histone marks.
 
-See an illustration in the Gallery below, and real examples in the associated
+See an illustration in the gallery below, and real examples in the associated
 [MiMB.4C](https://github.com/benja0x40/MiMB.4C) workflow.
 
 ### Package installation ###
