@@ -11,7 +11,8 @@ This package provides functions dedicated to normalization, assignment of probes
 to restriction fragments and probe filtering tasks which are specific to 4C data
 processing[<sup>1</sup>](#1).
 The included multi-resolution analysis methods are relevant for both 4C
-and ChIP-on-chip profiles of broad chromatin components such as histone marks.  
+and ChIP-on-chip profiles of broad chromatin components such as histone marks.
+
 See an illustration in the Gallery below, and real examples in the associated
 [MiMB.4C](https://github.com/benja0x40/MiMB.4C) workflow.
 
