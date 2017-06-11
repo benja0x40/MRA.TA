@@ -22,4 +22,3 @@ processArgs(script.args = NULL, auto.help = T, extra.help = "",
 \author{
 Benjamin Leblanc
 }
-

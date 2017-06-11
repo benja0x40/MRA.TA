@@ -69,12 +69,11 @@ A <- res$x; M <- res$y
 res <- lowessCorrection(A, M, lowess.f=0.2, plots = T)
 A <- res$x; M <- res$y
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{backgroundBiasEstimation},
    \link{backgroundBiasCorrection},
    \link{lowessCorrection}
 }
-
+\author{
+Benjamin Leblanc
+}

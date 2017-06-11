@@ -19,11 +19,10 @@ visualizationCoordinates(start, end)
 Compute coordinates for the domainogram visualization of a range of genomic
 positions (x axis).
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{domainogram},
    \link{wSize2yAxis}
 }
-
+\author{
+Benjamin Leblanc
+}

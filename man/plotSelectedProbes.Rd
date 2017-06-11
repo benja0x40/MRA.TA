@@ -9,11 +9,10 @@ plotSelectedProbes(a, m, dis, sel, dlim = c(-2000, 2000), ylab = "4C")
 \description{
 
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{plotProbeDistanceControls},
    \link{enrichmentQuality}
 }
-
+\author{
+Benjamin Leblanc
+}

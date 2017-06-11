@@ -18,10 +18,9 @@ combineByFragment(x, probes.grg, FUN = mean, ...)
 \description{
 
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{}
 }
-
+\author{
+Benjamin Leblanc
+}

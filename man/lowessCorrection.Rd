@@ -23,10 +23,9 @@ lowessCorrection(x, y, lowess.f = 0.3, lowess.mad = 0, lowess.iter = 5,
 \description{
 
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{normalizeArrayData}
 }
-
+\author{
+Benjamin Leblanc
+}

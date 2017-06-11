@@ -12,4 +12,3 @@ Utility function for visualizing the kd-tree structure of (A,M) values.
 \author{
 Benjamin Leblanc
 }
-

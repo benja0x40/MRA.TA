@@ -31,4 +31,3 @@ colorstrip(Pw, x, y, width, height, colfun = makeColors, n.ticks = 4,
 \author{
 Benjamin Leblanc
 }
-

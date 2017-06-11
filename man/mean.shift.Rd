@@ -11,10 +11,9 @@
 Core function of the background traversal algorithm based on a pre-computed
 kd-tree structure of (A,M) values. See normalizeArrayData function.
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{},
 }
-
+\author{
+Benjamin Leblanc
+}

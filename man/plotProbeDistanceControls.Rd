@@ -25,11 +25,10 @@ plotProbeDistanceControls(x, rnk, dis, dlim = c(-2000, 2000), QF = NULL,
 \description{
 
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{plotSelectedProbes},
    \link{enrichmentQuality}
 }
-
+\author{
+Benjamin Leblanc
+}

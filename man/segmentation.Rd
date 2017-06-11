@@ -14,17 +14,18 @@ segmentation(Yi, name, wmax = 0, wmin = 3, gamma = 1, Tw = 0)
 \item{wmax}{maximal window size to be scanned in number of Yi values.
 The default is \code{length(Yi)}.}
 
-\item{wmin}{minimum size of segmented domains in number of Yi values.
+\item{wmin}{minimum size of segmented regions in number of Yi values.
 The default is 3 consecutive Yi values.}
 
-\item{gamma}{stringency factor ranging from ]0;1].
-Default value is 1.0 and lower values correspond to increased stringency.}
+\item{gamma}{numeric value ranging from ]0;1] and acting as a stringency factor which
+influences both the minimum size and enrichment score of segmented regions.
+The segmentation stringency gets higher when \code{gamma} value gets lower.
+Default value is 1.0 (no effect).}
 
-\item{Tw}{log value ranging from ]\code{-Inf};0] and indicating the minimal statistical
-scores (e.g. pseudo p-values from combined rank-based scores) accepted for
-segmented domains.
-Default value is 0 and equivalent to an absence of cutoff while lower values
-correspond to more stringent cutoffs.}
+\item{Tw}{numeric value ranging from ]\code{-Inf};0] and indicating the minimal
+enrichment score accepted for segmented regions. This thresholding becomes
+more stringent when \code{Tw} value gets lower.
+Default value is 0 (no threshold).}
 }
 \value{
 \code{segmentation} returns a list object with the following attributes:
@@ -41,7 +42,8 @@ correspond to more stringent cutoffs.}
 \item{Pw.min}{best statistical score (pseudo p-values from combined rank-based scores) for each scanned window size}
 }
 \description{
-
+Compute a multi-resolution segmentation based on locally optimal enrichment
+scores and internal consistency of the segmentation tree.
 }
 \section{Output files}{
  \itemize{
@@ -62,16 +64,20 @@ size in number of consecutive Yi values Piw = statistical score }
 
 These files contain the segmented domain data, resulting from the domain
 fusion procedure, and defined by columns (id, container, start, end, wmin,
-wmax, P, i, w) as follows: \preformatted{ id = unique identifier for each
-domain container = identifier of parent domain, 0 meaning no parent start =
-index of the first Yi value within domain end = index of the last Yi value
-within domain wmin = minimum size of included optimal segments, in number of
-Yi values wmax = maximum size of included optimal segments, in number of Yi
-values P = statistical score of the locally optimal segment i = index of the
-last Yi value within the locally optimal segment w = size of the locally
-optimal segment in number of consecutive Yi values }
+wmax, P, i, w) as follows: \preformatted{
+   id        = unique identifier for each domain
+   container = identifier of parent domain, 0 meaning no parent
+   start     = index of the first Yi value within domain
+   end       = index of the last Yi value within domain
+   wmin      = minimum size of included optimal segments, in number of Yi values
+   wmax      = maximum size of included optimal segments, in number of Yi values
+   P         = statistical score of the locally optimal segment
+   i         = index of the last Yi value within the locally optimal segment
+   w         = size of the locally optimal segment in number of consecutive Yi values
 }
 }
+}
+
 \examples{
 # Simulate enrichment signal
 n <- 2000
@@ -117,8 +123,12 @@ plotDomains(doms.ms, x.s, x.e, w2y, col=rgb(1,0,0,0.5), border=rgb(0,0,0,0), lwd
 legend("topright", c("Max. resolution", "Max. scale", "Both"), fill=c("green", "red", "chocolate"), bty='n')
 plot(Mi, type='l', xaxs = 'i')
 }
-\author{
-Benjamin Leblanc
+\references{
+Leblanc B., Comet I., Bantignies F., and Cavalli G.,
+Chromosome Conformation Capture on Chip (4C): data processing.
+Book chapter in Polycomb Group Proteins: Methods and Protocols.
+Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).
+\link{http://dx.doi.org/10.1007/978-1-4939-6380-5_21}
 }
 \seealso{
 \link{calc.Qi},
@@ -127,4 +137,6 @@ Benjamin Leblanc
    \link{plotOptimalSegments},
    \link{plotDomains}
 }
-
+\author{
+Benjamin Leblanc
+}

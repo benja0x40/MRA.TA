@@ -19,10 +19,9 @@ verifyInputFiles(path.list, columns = NULL, sep = "\\t", comments = "#")
 Check availability of tabulated text input files, including basic
 verification of the expected format.
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{readData}
 }
-
+\author{
+Benjamin Leblanc
+}

@@ -81,9 +81,6 @@ plotDomains(doms.ms, x.s, x.e, w2y, col=rgb(1,0,0,0.5), border=rgb(0,0,0,0), lwd
 legend("topright", c("Max. resolution", "Max. scale", "Both"), fill=c("green", "red", "chocolate"), bty='n')
 plot(Mi, type='l')
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{visualizationCoordinates},
    \link{wSize2yAxis},
@@ -91,4 +88,6 @@ Benjamin Leblanc
    \link{segmentation},
    \link{plotOptimalSegments}
 }
-
+\author{
+Benjamin Leblanc
+}

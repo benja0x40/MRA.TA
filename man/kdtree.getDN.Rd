@@ -22,4 +22,3 @@ values.
 \author{
 Benjamin Leblanc
 }
-

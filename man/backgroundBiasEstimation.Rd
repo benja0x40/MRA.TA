@@ -84,18 +84,17 @@ legend("topright", paste("N =", ntst), bty="n")
 # delta <- abs(tst$estimated - tst$simulated)
 # q <- quantile(delta, probs=c(0.5, 0.75, 0.9, 0.95, 0.99), na.rm=T)
 }
-\author{
-Benjamin Leblanc
-}
 \references{
 Leblanc B., Comet I., Bantignies F., and Cavalli G.,
-*Chromosome Conformation Capture on Chip (4C): data processing.
-Book chapter to appear in *Polycomb Group Proteins.*
-*Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).
-\link{https://www.springer.com/gp/book/9781493963782}
+Chromosome Conformation Capture on Chip (4C): data processing.
+Book chapter in Polycomb Group Proteins: Methods and Protocols.
+Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).
+\link{http://dx.doi.org/10.1007/978-1-4939-6380-5_21}
 }
 \seealso{
 \link{backgroundBiasCorrection},
    \link{normalizeArrayData}
 }
-
+\author{
+Benjamin Leblanc
+}

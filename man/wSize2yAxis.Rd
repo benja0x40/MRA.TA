@@ -23,11 +23,10 @@ scale instead of a linear scale (default = F, linear)}
 Compute coordinates for the domainogram visualization of a range of window
 sizes (y axis).
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{domainogram},
    \link{visualizationCoordinates},
 }
-
+\author{
+Benjamin Leblanc
+}

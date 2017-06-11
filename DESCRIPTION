@@ -23,4 +23,4 @@ Depends:
 Description: Multi-resolution representation and segmentation of genomic profiles from tiling arrays, such as ChIP-on-chip and Chromosome Conformation Capture on Chip (4C) experimental data.
 License: GPL (>= 2)
 LazyData: TRUE
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

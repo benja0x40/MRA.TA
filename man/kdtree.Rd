@@ -20,4 +20,3 @@ background traversal algorithm (see normalizeArrayData).
 \author{
 Benjamin Leblanc
 }
-

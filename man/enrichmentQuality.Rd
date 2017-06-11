@@ -32,10 +32,9 @@ clr <- with(
 )
 with(chk, plot(w.score, b.score, pch='.', col=clr))
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{plotProbeDistanceControls}
 }
-
+\author{
+Benjamin Leblanc
+}

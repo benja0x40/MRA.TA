@@ -15,12 +15,11 @@ log(calc.Qi(x))
 \description{
 Compute log-transformed rank-based scores from numeric values.
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{calc.Qi},
    \link{domainogram},
    \link{segmentation}
 }
-
+\author{
+Benjamin Leblanc
+}

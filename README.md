@@ -3,30 +3,81 @@ MRA.TA - Multi-Resolution Analysis of Tiling Arrays
 
 `MRA.TA` is an R package for multi-resolution representation and segmentation of
 genomic profiles from tiling arrays such as ChIP-on-chip and Chromosome
-Conformation Capture on Chip (4C) experimental data.  
-This package also provides normalization, probe to restriction fragment matching
-and probe selection methods which are specifically dedicated to 4C data
-processing[<sup>1</sup>](#1).
+Conformation Capture on Chip (4C) experimental data.
 
 ### Main features ###
 
-Domaingram representation[<sup>2</sup>](#2), multi-resolution segmentation based on local
-optimization and internal consistency of the segmentation tree.
+This package provides functions dedicated to normalization, assignment of probes
+to restriction fragments and probe filtering tasks which are specific to 4C data
+processing[<sup>1</sup>](#1).
+The included multi-resolution analysis methods are relevant for both 4C
+and ChIP-on-chip profiles of broad chromatin components such as histone marks
+(see illustration in the Gallery below).
 
-### Installation ###
+### Package installation ###
 
-#### Prerequisites ####
+#### Installation from github ####
 
-  - R environment version 3.x
-  - R packages: `devtools`, `stringr`, `getopt`, `plotrix`
-  - [Bioconductor](http://www.bioconductor.org/) packages: `Biostrings`, `GenomicRanges`
-  
-#### Installing MRA.TA ####
+Run the R code below to install `MRA.TA`.
 
 ```R
 library("devtools")
 install_github("benja0x40/MRA.TA")
 ```
+
+If the installation fails, try to install dependencies manually as indicated
+in the following section.
+
+#### Dependencies ####
+
+  - [R environment](https://www.r-project.org/) version 3.x
+  - CRAN packages `devtools`, `stringr`, `getopt`, `plotrix`
+  - [Bioconductor](http://www.bioconductor.org/) packages
+    `Biostrings`, `GenomicRanges`
+  
+Run the R code below to install CRAN and Bioconductor package dependencies
+for `MRA.TA`.
+
+```R
+# Already installed
+pkg <- installed.packages()[, "Package"]
+
+# CRAN packages
+lst <- c("devtools", "stringr", "getopt", "plotrix")
+lst <- setdiff(lst, pkg)
+if(length(lst) > 0) install.packages(lst, repos = "https://cloud.r-project.org/")
+
+# Bioconductor packages
+lst <- c("Biostrings", "GenomicRanges")
+lst <- setdiff(lst, pkg)
+if(length(lst) > 0) {
+  source("https://bioconductor.org/biocLite.R")
+  biocLite(lst)
+}
+```
+
+### Gallery ###
+
+The example below illustrates a multi-resolution analysis with the domaingram
+representation[<sup>2</sup>](#2) (panel **_Piw_**) and the corresponding
+multi-resolution segmentation (panel **_segmentation_**) from simulated data
+(bottom panel, **_M_**).
+Segmentations computed with `MRA.TA` are based on an algorithm tracing
+locally optimal enrichment statistics (top panel **_Fi_**).
+This algorithm produces raw segmentation trees which are then refined and
+greatly simplified using rules of internal consistency
+(automated post-processing, see examples [here](https://github.com/benja0x40/MiMB.4C)).
+
+![](./images/gallery/MRA.TA_smallsize.png "")
+
+### Acknowledgements ###
+
+Thanks to Elzo de Wit for kindly sharing his source code and suggestions on the
+multi-resolution methods, and to Bas Tolhuis who greatly helped with Nimblegen
+tiling array data analyses, also sharing source code as well as unpublished
+biological data. Thanks to Jean-Philippe Villemin for testing the installation and execution of
+the associated [MiMB.4C](https://github.com/benja0x40/MiMB.4C) workflow and
+reporting issues and suggestions.
 
 ### References ###
 

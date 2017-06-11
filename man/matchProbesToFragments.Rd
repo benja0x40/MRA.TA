@@ -14,11 +14,10 @@ matchProbesToFragments(probes.grg, fragments.grg)
 \description{
 
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{matchFragmentsToProbes},
    \link{computeRestrictionMap}
 }
-
+\author{
+Benjamin Leblanc
+}

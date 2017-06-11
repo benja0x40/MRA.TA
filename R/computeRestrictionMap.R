@@ -16,7 +16,7 @@
 #' \link{DNAStringSet} object containing the genome sequence
 #'
 #' @param enzyme.motif
-#' \code{character} value defining the enzyme cut sites as a DNA sequence
+#' \code{character} defining the DNA sequence of enzyme cut sites
 #'
 #' @param output.file
 #' \code{character} prefix used to generate output file names.

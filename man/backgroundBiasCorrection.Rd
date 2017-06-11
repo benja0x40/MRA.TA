@@ -27,14 +27,20 @@ elements:
 }
 \description{
 Correct for a background bias in A, M values from a tiling array.
-The correction consists in a rotation of angle \code{-theta}, as estimated by the
-\link{backgroundBiasEstimation} function.
+The correction consists in a rotation of angle \code{-theta}, as estimated
+by the \link{backgroundBiasEstimation} function.
 }
-\author{
-Benjamin Leblanc
+\references{
+Leblanc B., Comet I., Bantignies F., and Cavalli G.,
+Chromosome Conformation Capture on Chip (4C): data processing.
+Book chapter in Polycomb Group Proteins: Methods and Protocols.
+Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).
+\link{http://dx.doi.org/10.1007/978-1-4939-6380-5_21}
 }
 \seealso{
 \link{backgroundBiasEstimation},
    \link{normalizeArrayData}
 }
-
+\author{
+Benjamin Leblanc
+}

@@ -12,12 +12,11 @@ countProbesPerFragment(probes.grg)
 \description{
 
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{matchProbesToFragments},
    \link{matchFragmentsToProbes},
    \link{computeRestrictionMap}
 }
-
+\author{
+Benjamin Leblanc
+}

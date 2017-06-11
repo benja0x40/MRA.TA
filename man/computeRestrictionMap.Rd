@@ -9,7 +9,7 @@ computeRestrictionMap(genome.seq, enzyme.motif, output.file, seqlist = NULL)
 \arguments{
 \item{genome.seq}{\link{DNAStringSet} object containing the genome sequence}
 
-\item{enzyme.motif}{\code{character} value defining the enzyme cut sites as a DNA sequence}
+\item{enzyme.motif}{\code{character} defining the DNA sequence of enzyme cut sites}
 
 \item{output.file}{\code{character} prefix used to generate output file names.}
 
@@ -22,12 +22,11 @@ computeRestrictionMap(genome.seq, enzyme.motif, output.file, seqlist = NULL)
 \description{
 
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{matchFragmentsToProbes},
    \link{matchProbesToFragments},
    \link{DNAStringSet}
 }
-
+\author{
+Benjamin Leblanc
+}

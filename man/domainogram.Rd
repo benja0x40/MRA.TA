@@ -74,14 +74,11 @@ par(mar=c(3, 4, 1, 2)) # default bottom, left, top, right = c(5, 4, 4, 2)
 domainogram(Yi, x.s, x.e, w2y)
 plot(Mi, type='l')
 }
-\author{
-Benjamin Leblanc
-}
 \references{
 de Wit E., Braunschweig U., Greil F., Bussemaker H.J., and van Steensel B.
 Global chromatin domain organization of the Drosophila genome.
 PLoS genetics 4: e1000045 (2008).
-\url{http://www.ncbi.nlm.nih.gov/pubmed/18369463}
+\url{http://dx.doi.org/10.1371/journal.pgen.1000045}
 }
 \seealso{
 \link{calc.Qi},
@@ -93,4 +90,6 @@ PLoS genetics 4: e1000045 (2008).
    \link{plotOptimalSegments},
    \link{plotDomains}
 }
-
+\author{
+Benjamin Leblanc
+}

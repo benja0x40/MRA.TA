@@ -45,10 +45,9 @@ Each format definition provides the following informations:
   }
 }
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{verifyInputFiles}
 }
-
+\author{
+Benjamin Leblanc
+}

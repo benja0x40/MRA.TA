@@ -10,12 +10,6 @@
 # -----------------------------------------------------------------------------.
 #' @description
 #' Transform numeric values into rank-based scores.
-#'
-#' @references
-#' de Wit E., Braunschweig U., Greil F., Bussemaker H.J., and van Steensel B.
-#' Global chromatin domain organization of the Drosophila genome.
-#' PLoS genetics 4: e1000045 (2008).
-#' \url{http://www.ncbi.nlm.nih.gov/pubmed/18369463}
 # -----------------------------------------------------------------------------.
 #' @param x vector of numeric values.
 # -----------------------------------------------------------------------------.
@@ -444,7 +438,7 @@ plotDomains <- function(domains, x.s, x.e, w2y, xlim=NULL, wlim=NULL, xlab='', a
 #' de Wit E., Braunschweig U., Greil F., Bussemaker H.J., and van Steensel B.
 #' Global chromatin domain organization of the Drosophila genome.
 #' PLoS genetics 4: e1000045 (2008).
-#' \url{http://www.ncbi.nlm.nih.gov/pubmed/18369463}
+#' \url{http://dx.doi.org/10.1371/journal.pgen.1000045}
 # -----------------------------------------------------------------------------.
 #' @param Yi
 #' vector of statistical scores produced by the \link{enrichmentScore} function

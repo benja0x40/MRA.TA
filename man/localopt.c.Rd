@@ -9,10 +9,9 @@ localopt.c(Yi, name, wmax = 0, wmin = 0, gamma = 1, Tw = 0)
 \description{
 
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{domainogram},
 }
-
+\author{
+Benjamin Leblanc
+}

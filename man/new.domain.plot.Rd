@@ -22,11 +22,10 @@ new.domain.plot(x.s, x.e, w2y, xlim = NULL, wlim = NULL, xlab = "")
 \description{
 
 }
-\author{
-Benjamin Leblanc
-}
 \seealso{
 \link{domainogram},
    \link{plotOptimalSegments}
 }
-
+\author{
+Benjamin Leblanc
+}
