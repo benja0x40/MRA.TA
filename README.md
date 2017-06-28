@@ -69,7 +69,7 @@ locally optimal enrichment statistics (top panel **_Fi_**).
 This algorithm produces raw segmentation trees which are then refined and
 simplified using rules of internal consistency
 (automated post-processing). See two examples with real 4C data
-[here](https://github.com/benja0x40/MiMB.4C)).
+[here](https://github.com/benja0x40/MiMB.4C).
 
 ![](./images/gallery/MRA.TA_smallsize.png "")
 
