@@ -11,10 +11,11 @@ This package provides functions dedicated to normalization, assignment of probes
 to restriction fragments and probe filtering tasks which are specific to 4C data
 processing[<sup>1</sup>](#1).
 The included multi-resolution analysis methods are relevant for both 4C
-and ChIP-on-chip profiles of broad chromatin components such as histone marks.
+and ChIP-on-chip profiles of broad chromatin components such as histone
+modifications.
 
-See an illustration in the gallery below, and real examples in the associated
-[MiMB.4C](https://github.com/benja0x40/MiMB.4C) workflow.
+See an illustration below with a simulated profile, and real examples in the
+associated [MiMB.4C](https://github.com/benja0x40/MiMB.4C) repository.
 
 ### Package installation ###
 
@@ -57,17 +58,18 @@ if(length(lst) > 0) {
 }
 ```
 
-### Gallery ###
+### Illustration ###
 
-The example below illustrates a multi-resolution analysis with the domaingram
+The example below shows a multi-resolution analysis, with the domaingram
 representation[<sup>2</sup>](#2) (panel **_Piw_**) and the corresponding
-multi-resolution segmentation (panel **_segmentation_**) from simulated data
+multi-resolution segmentation (panel **_segmentation_**), from simulated data
 (bottom panel, **_M_**).
 Segmentations computed with `MRA.TA` are based on an algorithm tracing
 locally optimal enrichment statistics (top panel **_Fi_**).
 This algorithm produces raw segmentation trees which are then refined and
-greatly simplified using rules of internal consistency
-(automated post-processing, see examples [here](https://github.com/benja0x40/MiMB.4C)).
+simplified using rules of internal consistency
+(automated post-processing). See two examples with real 4C data
+[here](https://github.com/benja0x40/MiMB.4C)).
 
 ![](./images/gallery/MRA.TA_smallsize.png "")
 
