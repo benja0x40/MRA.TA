@@ -3,34 +3,34 @@ MRA.TA - Multi-Resolution Analysis of Tiling Arrays
 
 ### Overview ###
 
-`MRA.TA` is an R package for multi-resolution representation and segmentation of
+`MRA.TA` is an `R` package for multi-resolution representation and segmentation of
 genomic profiles from
 [tiling arrays](https://en.wikipedia.org/wiki/Tiling_array).
 
-This package can be used to detect enriched regions of arbitrary size from
-Chromosome Conformation Capture on Chip (4C) data, the microarray version of 4C
-employed in early genomic studies of chromosome conformations, as well as
-from Chromatin Immuno-Precipitation on chip (ChIP-on-chip), the precursor of
-the ChIP-seq technique.
+This package was originally developed to detect enriched regions of arbitrary
+size from Chromosome Conformation Capture on Chip (4C) data, the microarray
+version of 4C employed in early genomic studies of chromosome conformations,
+as well as from Chromatin Immuno-Precipitation on chip (ChIP-on-chip) data,
+the precursor of the ChIP-seq technique.
 
-`MRA.TA` provides a set of normalization, assignment of probes to restriction
-fragments and probe filtering functions dedicated to 4C data[<sup>1</sup>](#1),
-as well as multi-resolution analysis methods that are relevant for both 4C
-and ChIP-on-chip profiles.
+More precisely, `MRA.TA` provides a set of normalization, assignment of probes
+to restriction fragments and probe filtering functions dedicated to 4C
+data[<sup>1</sup>](#1), as well as multi-resolution analysis methods that are
+relevant for both 4C and ChIP-on-chip profiles.
 
 ![](./images/gallery/MRA.TA_smallsize.png "")
 
-The example above shows a multi-resolution analysis, with the domaingram
-representation[<sup>2</sup>](#2) (panel **_Piw_**) and the corresponding
-multi-resolution segmentation (panel **_segmentation_**), from simulated data
-(bottom panel, **_M_**).
+The example above shows a multi-resolution analysis performed with `MRA.TA`,
+including the domaingram representation[<sup>2</sup>](#2) (panel **_Piw_**)
+and the corresponding multi-resolution segmentation (panel **_segmentation_**),
+from simulated data (bottom panel, **_M_**).
 Segmentations computed with `MRA.TA` are based on an algorithm tracing
 locally optimal enrichment statistics (top panel **_Fi_**).
 This algorithm produces raw segmentation trees which are then refined and
 simplified using rules of internal consistency
 (automated post-processing).
 
-For further details and examples with real 4C data see
+For further details and examples based on real 4C data see
 [Leblanc _et al_. 2016](#1) and the associated
 [MiMB.4C](https://github.com/benja0x40/MiMB.4C) workflow.
 
