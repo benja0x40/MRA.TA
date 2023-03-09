@@ -20,7 +20,7 @@ computeRestrictionMap(genome.seq, enzyme.motif, output.file, seqlist = NULL)
 \item{fragments}{file name with restriction fragments data}
 }
 \description{
-
+Compute a restriction map
 }
 \seealso{
 \link{matchFragmentsToProbes},

@@ -7,7 +7,7 @@
 plotSelectedProbes(a, m, dis, sel, dlim = c(-2000, 2000), ylab = "4C")
 }
 \description{
-
+Plot 4C enrichment versus distance to restriction sites
 }
 \seealso{
 \link{plotProbeDistanceControls},

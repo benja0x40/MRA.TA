@@ -4,8 +4,19 @@
 \alias{domainogram}
 \title{Domainogram visualization}
 \usage{
-domainogram(Yi, x.s, x.e, w2y, xlim = NULL, wlim = NULL,
-  colfun = makeColors, xlab = "", add = F, logskip = 1.01, ...)
+domainogram(
+  Yi,
+  x.s,
+  x.e,
+  w2y,
+  xlim = NULL,
+  wlim = NULL,
+  colfun = makeColors,
+  xlab = "",
+  add = F,
+  logskip = 1.01,
+  ...
+)
 }
 \arguments{
 \item{Yi}{vector of statistical scores produced by the \link{enrichmentScore} function}

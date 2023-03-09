@@ -18,6 +18,8 @@ to restriction fragments and probe filtering functions dedicated to 4C
 data[<sup>1</sup>](#1), as well as multi-resolution analysis methods that are
 relevant for both 4C and ChIP-on-chip profiles.
 
+### Example ###
+
 ![](./images/gallery/MRA.TA_smallsize.png "")
 
 The example above shows a multi-resolution analysis performed with `MRA.TA`,

@@ -4,8 +4,14 @@
 \alias{lowessCorrection}
 \title{LOWESS based normalization}
 \usage{
-lowessCorrection(x, y, lowess.f = 0.3, lowess.mad = 0, lowess.iter = 5,
-  plots = F)
+lowessCorrection(
+  x,
+  y,
+  lowess.f = 0.3,
+  lowess.mad = 0,
+  lowess.iter = 5,
+  plots = F
+)
 }
 \arguments{
 \item{x}{}
@@ -21,7 +27,7 @@ lowessCorrection(x, y, lowess.f = 0.3, lowess.mad = 0, lowess.iter = 5,
 \item{plots}{}
 }
 \description{
-
+LOWESS based normalization
 }
 \seealso{
 \link{normalizeArrayData}

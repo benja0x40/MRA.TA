@@ -4,7 +4,7 @@
 \alias{plot.kdtree.border}
 \title{visualize the kd-tree structure}
 \usage{
-plot.kdtree.border(node)
+\method{plot}{kdtree.border}(node)
 }
 \description{
 Utility function for visualizing the kd-tree structure of (A,M) values.

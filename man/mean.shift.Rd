@@ -4,8 +4,16 @@
 \alias{mean.shift}
 \title{Meanshift}
 \usage{
-\method{mean}{shift}(M, v, d, node, epsilon = 0.001, col = rgb(1, 0.5, 0,
-  1), nsteps = 0, plots = FALSE)
+\method{mean}{shift}(
+  M,
+  v,
+  d,
+  node,
+  epsilon = 0.001,
+  col = rgb(1, 0.5, 0, 1),
+  nsteps = 0,
+  plots = FALSE
+)
 }
 \description{
 Core function of the background traversal algorithm based on a pre-computed

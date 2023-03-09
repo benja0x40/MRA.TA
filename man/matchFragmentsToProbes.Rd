@@ -12,7 +12,7 @@ matchFragmentsToProbes(fragments.grg, probes.grg)
 \item{probes.grg}{}
 }
 \description{
-
+Match restriction fragments to microarray probes
 }
 \seealso{
 \link{matchProbesToFragments},

@@ -4,8 +4,15 @@
 \alias{plotProbeDistanceControls}
 \title{Plot 4C enrichment versus distance to restriction sites}
 \usage{
-plotProbeDistanceControls(x, rnk, dis, dlim = c(-2000, 2000), QF = NULL,
-  n.q = 100, ylab = "4C")
+plotProbeDistanceControls(
+  x,
+  rnk,
+  dis,
+  dlim = c(-2000, 2000),
+  QF = NULL,
+  n.q = 100,
+  ylab = "4C"
+)
 }
 \arguments{
 \item{x}{}
@@ -23,7 +30,7 @@ plotProbeDistanceControls(x, rnk, dis, dlim = c(-2000, 2000), QF = NULL,
 \item{ylab}{}
 }
 \description{
-
+Plot 4C enrichment versus distance to restriction sites
 }
 \seealso{
 \link{plotSelectedProbes},

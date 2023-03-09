@@ -7,7 +7,7 @@
 localopt.c(Yi, name, wmax = 0, wmin = 0, gamma = 1, Tw = 0)
 }
 \description{
-
+local optimization
 }
 \seealso{
 \link{domainogram},

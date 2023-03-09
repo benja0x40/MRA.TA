@@ -4,8 +4,17 @@
 \alias{backgroundBiasEstimation}
 \title{Background bias estimation}
 \usage{
-backgroundBiasEstimation(x, y, AM.scale.compensation = T, smoothness = 0.08,
-  epsilon = 0.001, nsteps = 11, plots = F, xlab = "A", ylab = "M")
+backgroundBiasEstimation(
+  x,
+  y,
+  AM.scale.compensation = T,
+  smoothness = 0.08,
+  epsilon = 0.001,
+  nsteps = 11,
+  plots = F,
+  xlab = "A",
+  ylab = "M"
+)
 }
 \arguments{
 \item{x}{numeric vector of A values, e.g. the average of log2 of the specific and the
@@ -73,7 +82,7 @@ for(i in 1:ntst) {
 close(pb)
 write.table(
   tst, "testBackgroundBiasEstimation.txt",
-  quote = F, sep = '\\t', row.names=F, col.names=T
+  quote = F, sep = '\t', row.names=F, col.names=T
 )
 
 tst <- read.delim("testBackgroundBiasEstimation.txt", stringsAsFactors=F)

@@ -4,8 +4,7 @@
 \alias{processArgs}
 \title{Extract command line arguments}
 \usage{
-processArgs(script.args = NULL, auto.help = T, extra.help = "",
-  verbose = T)
+processArgs(script.args = NULL, auto.help = T, extra.help = "", verbose = T)
 }
 \arguments{
 \item{script.args}{matrix or data.frame with argument specifications}
@@ -17,7 +16,7 @@ processArgs(script.args = NULL, auto.help = T, extra.help = "",
 \item{verbose}{}
 }
 \description{
-
+Extract command line arguments
 }
 \author{
 Benjamin Leblanc

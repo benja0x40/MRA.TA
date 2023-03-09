@@ -4,8 +4,18 @@
 \alias{colorstrip}
 \title{colorstrip}
 \usage{
-colorstrip(Pw, x, y, width, height, colfun = makeColors, n.ticks = 4,
-  n.bins = 100, cex = 0.5, ...)
+colorstrip(
+  Pw,
+  x,
+  y,
+  width,
+  height,
+  colfun = makeColors,
+  n.ticks = 4,
+  n.bins = 100,
+  cex = 0.5,
+  ...
+)
 }
 \arguments{
 \item{Pw}{}
@@ -27,6 +37,12 @@ colorstrip(Pw, x, y, width, height, colfun = makeColors, n.ticks = 4,
 \item{cex}{}
 
 \item{\dots}{}
+}
+\value{
+
+}
+\description{
+colorstrip
 }
 \author{
 Benjamin Leblanc

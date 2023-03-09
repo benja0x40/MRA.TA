@@ -20,7 +20,7 @@ new.domain.plot(x.s, x.e, w2y, xlim = NULL, wlim = NULL, xlab = "")
 \item{xlab}{}
 }
 \description{
-
+Create a new multi-resolution plot
 }
 \seealso{
 \link{domainogram},

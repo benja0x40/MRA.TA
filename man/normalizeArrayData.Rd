@@ -4,9 +4,19 @@
 \alias{normalizeArrayData}
 \title{Normalize tiling array data}
 \usage{
-normalizeArrayData(A, M, smoothness = 0.08, epsilon = 0.01, nsteps = 11,
-  name = "Test", plots = TRUE, lowess = T, lowess.f = 0.2,
-  lowess.mad = 0, lowess.iter = 5)
+normalizeArrayData(
+  A,
+  M,
+  smoothness = 0.08,
+  epsilon = 0.01,
+  nsteps = 11,
+  name = "Test",
+  plots = TRUE,
+  lowess = T,
+  lowess.f = 0.2,
+  lowess.mad = 0,
+  lowess.iter = 5
+)
 }
 \arguments{
 \item{A}{}
@@ -32,7 +42,7 @@ normalizeArrayData(A, M, smoothness = 0.08, epsilon = 0.01, nsteps = 11,
 \item{lowess.iter}{}
 }
 \description{
-
+Normalize tiling array data
 }
 \examples{
 # Load array data and apply background bias estimation+correction, followed by

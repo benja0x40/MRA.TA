@@ -183,7 +183,7 @@ backgroundBiasEstimation <- function(x, y, AM.scale.compensation=T, smoothness=0
     points(alpha/pi*180,type='l', col=rgb(1,0.5,0), lwd=2)
     points((1:length(alpha))[ra>=a1 & ra<=a2],(alpha/pi*180)[ra>=a1 & ra<=a2],pch='+', col=rgb(0.5,0.5,0.5,0.75))
 
-    text(length(alpha),theta/pi*180,labels=paste(round(theta/pi*180,1),"°",sep=""),col=rgb(0.5,0,1),pos=1)
+    text(length(alpha),theta/pi*180,labels=paste(round(theta/pi*180,1),"\U00B0",sep=""),col=rgb(0.5,0,1),pos=1)
   }
 
   theta

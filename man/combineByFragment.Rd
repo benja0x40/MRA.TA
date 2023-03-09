@@ -16,7 +16,7 @@ combineByFragment(x, probes.grg, FUN = mean, ...)
 \item{\dots}{}
 }
 \description{
-
+Combine probe measurements by restriction fragments
 }
 \seealso{
 \link{}

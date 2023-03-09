@@ -1,0 +1,94 @@
+<h1>MRA.TA - Multi-Resolution Analysis of Tiling Arrays</h1>
+
+<h3>Overview</h3>
+
+<p><code>MRA.TA</code> is an <code>R</code> package for multi-resolution representation and segmentation of
+genomic profiles from
+<a href="https://en.wikipedia.org/wiki/Tiling_array">tiling arrays</a>.</p>
+
+<p>This package was originally developed to detect enriched regions of arbitrary
+size from Chromosome Conformation Capture on Chip (4C) data, the microarray
+version of 4C employed in early genomic studies of chromosome conformations,
+as well as from Chromatin Immuno-Precipitation on chip (ChIP-on-chip) data,
+the precursor of the ChIP-seq technique.</p>
+
+<p>More precisely, <code>MRA.TA</code> provides a set of normalization, assignment of probes
+to restriction fragments and probe filtering functions dedicated to 4C
+data<a href="#1"><sup>1</sup></a>, as well as multi-resolution analysis methods that are
+relevant for both 4C and ChIP-on-chip profiles.</p>
+
+<h3>Example</h3>
+
+<p><img src="./images/gallery/MRA.TA_smallsize.png" alt=""/></p>
+
+<p>The example above shows a multi-resolution analysis performed with <code>MRA.TA</code>,
+including the domaingram representation<a href="#2"><sup>2</sup></a> (panel <strong><em>Piw</em></strong>)
+and the corresponding multi-resolution segmentation (panel <strong><em>segmentation</em></strong>),
+from simulated data (bottom panel, <strong><em>M</em></strong>).
+Segmentations computed with <code>MRA.TA</code> are based on an algorithm tracing
+locally optimal enrichment statistics (top panel <strong><em>Fi</em></strong>).
+This algorithm produces raw segmentation trees which are then refined and
+simplified using rules of internal consistency
+(automated post-processing).</p>
+
+<p>For further details and examples based on real 4C data see
+<a href="#1">Leblanc <em>et al</em>. 2016</a> and the associated
+<a href="https://github.com/benja0x40/MiMB.4C">MiMB.4C</a> workflow.</p>
+
+<h3>Package installation</h3>
+
+<h4>Installation from github</h4>
+
+<p>Run the R code below to install <code>MRA.TA</code>.</p>
+
+<pre><code class="R">library(&quot;devtools&quot;)
+install_github(&quot;benja0x40/MRA.TA&quot;)
+</code></pre>
+
+<p>If the installation fails, try to install dependencies manually as follows.</p>
+
+<h4>Dependencies</h4>
+
+<ul>
+<li><a href="https://www.r-project.org/">R environment</a> version 3.x</li>
+<li>CRAN packages <code>devtools</code>, <code>stringr</code>, <code>getopt</code>, <code>plotrix</code></li>
+<li><a href="http://www.bioconductor.org/">Bioconductor</a> packages
+<code>Biostrings</code>, <code>GenomicRanges</code></li>
+</ul>
+
+<p>Run the R code below to install CRAN and Bioconductor package dependencies
+for <code>MRA.TA</code>.</p>
+
+<pre><code class="R"># Already installed
+pkg &lt;- installed.packages()[, &quot;Package&quot;]
+
+# CRAN packages
+lst &lt;- c(&quot;devtools&quot;, &quot;stringr&quot;, &quot;getopt&quot;, &quot;plotrix&quot;)
+lst &lt;- setdiff(lst, pkg)
+if(length(lst) &gt; 0) install.packages(lst, repos = &quot;https://cloud.r-project.org/&quot;)
+
+# Bioconductor packages
+lst &lt;- c(&quot;Biostrings&quot;, &quot;GenomicRanges&quot;)
+lst &lt;- setdiff(lst, pkg)
+if(length(lst) &gt; 0) {
+  source(&quot;https://bioconductor.org/biocLite.R&quot;)
+  biocLite(lst)
+}
+</code></pre>
+
+<h3>Acknowledgements</h3>
+
+<p>Thanks to Elzo de Wit for kindly sharing his source code and suggestions on the
+multi-resolution methods, and to Bas Tolhuis who greatly helped with Nimblegen
+tiling array data analyses, also sharing source code as well as unpublished
+biological data. Thanks to Jean-Philippe Villemin for testing the installation and execution of
+the associated <a href="https://github.com/benja0x40/MiMB.4C">MiMB.4C</a> workflow and
+reporting issues and suggestions.</p>
+
+<h3>References</h3>
+
+<p><a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., <em>Chromosome Conformation Capture on Chip (4C): data processing.</em> Book chapter in <em>Polycomb Group Proteins: Methods and Protocols.</em> Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).<br/>
+<a href="http://dx.doi.org/10.1007/978-1-4939-6380-5_21">publisher</a> | <a href="https://www.ncbi.nlm.nih.gov/pubmed/27659990">pubmed</a></p>
+
+<p><a name="2"></a>2. de Wit E., Braunschweig U., Greil F., Bussemaker H. J. &amp; van Steensel B. <em>Global chromatin domain organization of the Drosophila genome.</em> PLoS Genetics (2008).<br/>
+<a href="http://dx.doi.org/10.1371/journal.pgen.1000045">publisher</a> | <a href="https://www.ncbi.nlm.nih.gov/pubmed/18369463">pubmed</a></p>

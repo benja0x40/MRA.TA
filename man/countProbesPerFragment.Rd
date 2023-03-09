@@ -10,7 +10,7 @@ countProbesPerFragment(probes.grg)
 \item{probes.grg}{}
 }
 \description{
-
+Count the number of accepted probes per restriction fragment
 }
 \seealso{
 \link{matchProbesToFragments},

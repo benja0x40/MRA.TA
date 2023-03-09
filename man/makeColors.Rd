@@ -4,8 +4,13 @@
 \alias{makeColors}
 \title{Represent numerical values by a color vector}
 \usage{
-makeColors(p, thresholds = c(10, 50, 500, 5000), colors = c("blue",
-  "yellow", "red", "black"), background = "white", overflow = "white")
+makeColors(
+  p,
+  thresholds = c(10, 50, 500, 5000),
+  colors = c("blue", "yellow", "red", "black"),
+  background = "white",
+  overflow = "white"
+)
 }
 \arguments{
 \item{p}{vector of positive numeric values.}
